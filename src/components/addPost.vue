@@ -29,13 +29,10 @@
         label="what's New"/>
     </div>
   </div>
-<!--  </div>-->
 </template>
 
 <script>
 import {mapActions, mapState} from "vuex";
-import {firebaseDb} from "boot/firebase";
-
 export default {
   name: "addPost",
   data() {

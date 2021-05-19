@@ -59,7 +59,6 @@
   </div>
 </template>
 <script>
-import ButtonGroup from "components/Modals/button-group";
 import {formatDistance} from "date-fns";
 import {mapActions, mapState} from "vuex";
 
