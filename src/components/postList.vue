@@ -37,8 +37,6 @@
               flat
             ></q-btn>
             <q-btn
-              :color="posts.liked ? 'red':'grey'"
-              :icon="posts.liked ? 'fas fa-heart':'far fa-heart'"
               color="grey"
               size="sm"
               round

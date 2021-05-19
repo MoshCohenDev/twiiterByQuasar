@@ -34,14 +34,13 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-
 import {firebaseDb} from "boot/firebase";
 
 export default {
   name: "addPost",
   data() {
     return {
-      newPost: '',
+      newPost: ''
     }
   },
   methods: {
@@ -49,8 +48,7 @@ export default {
     addNewPosts() {
       let Post = {
         content: this.newPost,
-        date: Date.now(),
-        liked:false
+        date: Date.now()
       }
       this.addNewPost(Post)
       this.newPost = ''
