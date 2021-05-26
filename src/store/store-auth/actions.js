@@ -35,7 +35,15 @@ export default {
       Loading.hide()
       if (user) {
         LocalStorage.set('loggedIn', user.uid)
-        console.log('user',user)
+        console.log('user', user)
+        if (user.displayName === null) {
+          console.log(user.email)
+          commit('setUserByLogin', user.email)
+        } else {
+          console.log('user.photoURL',user.photoURL)
+          commit('setUserByGoogle', user.displayName)
+          commit('imgUrl',user.photoURL)
+        }
         commit('setLoggedIn', true)
         this.$router.push('/home').catch(err => {
         })
@@ -49,5 +57,27 @@ export default {
       }
     })
   }
+  // handleAuthStateChange({commit, dispatch}) {
+  //   firebaseAuth.onAuthStateChanged(user => {
+  //     Loading.hide()
+  //     if (user) {
+  //       LocalStorage.set('loggedIn', user.uid)
+  //       if (user.displayName === null) {
+  //         console.log(user.email)
+  //         commit('setUserByLogin', user.email)
+  //       } else {
+  //         commit('setUserByGoogle', user.displayName)
+  //       }
+  //       commit('setLoggedIn', true)
+  //       this.$router.push('/home').catch(err => {
+  //       })
+  //       //   dispatch('posts/getPosts', null, {root: true})
+  //     } else {
+  //       LocalStorage.set('loggedIn', false)
+  //       this.$router.push('/auth').catch(err => {
+  //       })
+  //     }
+  //   })
+  // }
 
 }
