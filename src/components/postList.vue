@@ -8,14 +8,19 @@
         :post="post">
         <q-item-section avatar top>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar2.jpg">
+            <q-img
+              :src="img"
+              class="q-pa-lg img"
+              spinner-color="white"
+              style="height: 30px; max-width: 30px"
+            />
           </q-avatar>
         </q-item-section>
         <q-item-section>
           <q-item-label class="text-subtitle1 ">
-            <strong>Moshe Cohen</strong>
+            <strong>{{ userId }}</strong>
             <span class="text-grey-7">
-                @Moshe_Cohen
+              {{ userId }}
                <br class="lt-md"> &bull;{{ post.date | relativeDate }}
               </span>
           </q-item-label>
@@ -67,7 +72,6 @@ export default {
   data: () => ({
     data: []
   }),
-  components: {ButtonGroup},
   methods: {
     ...mapActions('posts', ['getPosts', 'deletePost']),
     removePost(post) {
@@ -75,22 +79,27 @@ export default {
       this.deletePost(id)
     }
   },
-  computed: mapState('posts', ['posts'])
-  ,
+  computed: {
+    ...mapState('posts', ['posts']),
+    ...mapState('auth', ['userId','img'])
+  },
+
   filters: {
     relativeDate(value) {
       return formatDistance(value, new Date())
-    },
-  },
-  // created() {
-  //   this.getPosts()
-  // },
-  // watch: {
-  //   posts() {
-  //     console.log(this.posts)
-  //
-  //   }
-  // }
+    }
+    ,
+  }
+  ,
+// created() {
+//   this.getPosts()
+// },
+// watch: {
+//   posts() {
+//     console.log(this.posts)
+//
+//   }
+// }
 
 }
 </script>

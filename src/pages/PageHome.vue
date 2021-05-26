@@ -22,7 +22,6 @@ import PostList from "components/postList";
 export default {
   name: 'PageHome',
   components: {PostList, AddPost},
-
 }
 </script>
 <style lang="scss">

@@ -1,3 +1,6 @@
 export default {
-  loggedIn: false
+  loggedIn: false,
+  userId: '',
+  img: ''
+
 }

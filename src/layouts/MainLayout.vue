@@ -23,7 +23,8 @@
         <q-btn dense flat round icon="menu" @click="left = !left"/>
 
         <q-toolbar-title class="text-weight-bold">
-          <span class="gt-sm">{{ $route.name }}</span>
+          <span class="gt-sm">{{ userId }}
+          </span>
           <q-icon
             class="Header-icon q-pa-md lt-md"
             name="fas fa-dove"
@@ -42,11 +43,12 @@
       :width="283"
       side="left"
       bordered>
-      <q-icon
-        class="q-pa-md"
-        name="fas fa-dove"
-        size="md"
-      ></q-icon>
+      <q-img
+        :src="img"
+        class="q-pa-lg img"
+        spinner-color="white"
+        style="height: 30px; max-width: 30px"
+      />
       <q-list>
         <q-item
           to="/home"
@@ -158,7 +160,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('auth', ['loggedIn'])
+    ...mapState('auth', ['loggedIn','userId','img'])
   },
   methods: {
     ...mapActions('auth', ['logoutUser'])

@@ -12,7 +12,11 @@
       >
         <template v-slot:before>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar2.jpg">
+            <q-img
+              :src="img"
+              spinner-color="white"
+              style="height: 30px; max-width: 30px"
+            />
           </q-avatar>
         </template>
       </q-input>
@@ -50,7 +54,11 @@ export default {
       this.addNewPost(Post)
       this.newPost = ''
     },
+
   },
+  computed:{
+    ...mapState('auth',['img'])
+  }
 }
 </script>
 
